@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdvertisingController {
 
   //维护一个线程安全的map 储存广告词
-  Map<String, Object> map = new ConcurrentHashMap<>();
+  public static  Map<String, Object> map = new ConcurrentHashMap<>();
 
   @RequestMapping(value = "/setAdvertising")
   public ResultEntity setAdvertising(Advertising advertising) {
