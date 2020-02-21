@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    name: phoneManager
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 2941@root
+    username: root
+    url: jdbc:mysql://localhost:3306/phone_manager
