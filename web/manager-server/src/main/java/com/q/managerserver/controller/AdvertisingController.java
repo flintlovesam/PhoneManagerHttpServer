@@ -41,8 +41,10 @@ public class AdvertisingController {
    */
   @RequestMapping(value = "/getOtherData")
   public ResultEntity getOtherData(String key) {
+    System.out.println(key);
     Object o = map.get(key);
-    return ResultEntity.success("获取成功", o);
+    System.out.println("获取到的数据" + o);
+    return ResultEntity.success("获取成功", o.toString());
   }
 
   /**
@@ -53,6 +55,7 @@ public class AdvertisingController {
    */
   @PostMapping(value = "/setOtherData")
   public ResultEntity setOtherData(String key,String jsonString) {
+    System.out.println("设置的数据" + jsonString);
     map.put(key, jsonString);
     return ResultEntity.success("设置成功", null);
   }
@@ -61,8 +64,8 @@ public class AdvertisingController {
    * 获取map中所有的数据
    * @return
    */
-  @GetMapping(value = "/getOtherData")
-  public ResultEntity getOtherData() {
+  @GetMapping(value = "/getOtherMap")
+  public ResultEntity getOtherMap() {
     return ResultEntity.success("", map);
   }
 }

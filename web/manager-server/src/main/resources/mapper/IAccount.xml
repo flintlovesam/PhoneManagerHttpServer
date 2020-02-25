@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.q.managerserver.mapper.IAccountMapper">
+  <!--批量插入数据-->
+  <insert id="insertList">
+    INSERT INTO
+      account (account, pass_word, create_time )
+    VALUES
+    <foreach collection="accounts" item="account" separator=",">
+      (#{account.account},#{account.passWord},#{account.createTime})
+    </foreach>
+  </insert>
+
+  <select id="getAccount" resultType="com.q.entity.Account">
+    SELECT
+      id,
+      account,
+      `use`,
+      pass_word PASSWORD,
+      create_time createTime,
+      use_time useTime
+    FROM
+      account
+    WHERE
+      `use`=0
+    LIMIT 0,
+     #{number};
+  </select>
+
+  <update id="update">
+    UPDATE account
+      SET `use` = 1, use_time=#{date}
+    WHERE
+      id IN(
+    <foreach collection="list" item="i" index="index" open="" close="" separator=",">
+      #{i}
+    </foreach>
+    )
+  </update>
+</mapper>

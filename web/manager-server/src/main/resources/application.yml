@@ -3,7 +3,21 @@ spring:
   application:
     name: phoneManager
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    password: 2941@root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
     username: root
-    url: jdbc:mysql://localhost:3306/phone_manager
+    url: jdbc:mysql://localhost:3306/wx_shop?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+MYSQL:
+  insertNumber: 1000
+server:
+  port: 10101
+  tomcat:
+    max-swallow-size: 50MB
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml

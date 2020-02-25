@@ -1,5 +1,6 @@
 package com.q.entity;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ResultEntity {
+public class ResultEntity implements Serializable{
 
   private static final String SUCCESS = "SUCCESS";
   private static final String FAIL = "FAIL";
