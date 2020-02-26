@@ -22,4 +22,12 @@ public class Timer {
     System.out.println("定时器启动");
     AdvertisingController.map.clear();
   }
+
+  /**
+   * 定时清理日志数据
+   */
+  @Scheduled(cron = "0 0 0 1/1 * ? ")
+  public void cleanLogger() {
+
+  }
 }
